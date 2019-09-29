@@ -19,10 +19,13 @@ STATUSES.each do |s|
   Status.create(:name => s[:name], :description => s[:description])
 end
 
-tom = User.create(:name => "Tom", :email => "tgray017")
-ticket = Ticket.new(:title => "My Ticket", :description => "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+tom = User.create(:name => "Tom", :email => "tgray017@gmail.com", :password => "password", :is_admin => true)
+victoria = User.create(:name => "Victoria", :email => "victoria@ilovewilson.com", :password => "password")
+ticket = Ticket.new(:title => "Tom's Ticket to Assign to Victoria", :description => "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
 Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
 
 Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.")
-ticket.statuses.build(:name => "Execution", :description => "This ticket is being executed.")
+ticket.creator = tom
+ticket.assignee = victoria
+ticket.save

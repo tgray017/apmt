@@ -6,4 +6,6 @@ class Ticket < ApplicationRecord
   alias_attribute :user_id, :assignee_id
 
   has_many :comments
+  has_many :ticket_statuses
+  has_many :statuses, through: :ticket_statuses
 end

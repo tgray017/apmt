@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket_id: 1
+  status_id: 1
+  current_status: false
+  notify_group: false
+
+two:
+  ticket_id: 1
+  status_id: 1
+  current_status: false
+  notify_group: false

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_145100) do
+ActiveRecord::Schema.define(version: 2019_09_29_185358) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2019_09_29_145100) do
   create_table "statuses", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ticket_statuses", force: :cascade do |t|
+    t.integer "ticket_id"
+    t.integer "status_id"
+    t.boolean "notify_group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

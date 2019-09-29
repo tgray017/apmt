@@ -21,6 +21,7 @@ end
 
 tom = User.create(:name => "Tom", :email => "tgray017@gmail.com", :password => "password", :is_admin => true)
 victoria = User.create(:name => "Victoria", :email => "victoria@ilovewilson.com", :password => "password")
+wilson = User.create(:name => "Wilson", :email => "wilson@iamawesome.com", :password => "password")
 ticket = Ticket.new(:title => "Tom's Ticket to Assign to Victoria", :description => "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
 Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
@@ -28,4 +29,15 @@ Bring to the table win-win survival strategies to ensure proactive domination. A
 Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.")
 ticket.creator = tom
 ticket.assignee = victoria
-ticket.save
+comment = Comment.new(:content => "I'm a dog!")
+comment.ticket = ticket
+comment.user = wilson
+comment.save
+reply = Reply.new(:content => "I know!")
+reply.user = victoria
+reply.comment = comment
+reply.save
+r = Reply.new(:content => "Get back to work you two!")
+r.user = tom
+r.comment = comment
+r.save

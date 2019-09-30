@@ -6,6 +6,7 @@ class CreateTickets < ActiveRecord::Migration[5.2]
       t.date :due_date
       t.integer :creator_id
       t.integer :assignee_id
+      t.integer :status_id
 
       t.timestamps
     end

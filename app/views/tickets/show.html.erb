@@ -1,4 +1,7 @@
 <h1><%= @ticket.title %></h1>
+<div class="ticket-status">
+  Status: <%= @ticket.status.name %><br>
+</div>
 <div class="ticket-people">
   Created by: <%= @ticket.creator.name %><br>
   Assigned to: <%= @ticket.assignee.name %><br>

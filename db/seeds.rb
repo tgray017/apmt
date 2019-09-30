@@ -29,6 +29,7 @@ Bring to the table win-win survival strategies to ensure proactive domination. A
 Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.")
 ticket.creator = tom
 ticket.assignee = victoria
+ticket.status = Status.find_by(:name => "Inputs")
 comment = Comment.new(:content => "I'm a dog!")
 comment.ticket = ticket
 comment.user = wilson

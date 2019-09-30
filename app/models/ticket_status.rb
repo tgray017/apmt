@@ -1,4 +1,4 @@
-class TicketStatus < ApplicationRecord
-  belongs_to :ticket
-  belongs_to :status
-end
+#class TicketStatus < ApplicationRecord
+#  belongs_to :ticket
+#  belongs_to :status
+#end

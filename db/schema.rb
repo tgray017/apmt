@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_185358) do
   create_table "tickets", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.date "due_date"
     t.integer "creator_id"
     t.integer "assignee_id"
     t.datetime "created_at", null: false

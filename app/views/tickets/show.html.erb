@@ -1,3 +1,13 @@
 <h1><%= @ticket.title %></h1>
-Created by: <%= @ticket.creator.name %>
-Assigned to: <%= @ticket.assignee.name %>
+<div class="ticket-people">
+  Created by: <%= @ticket.creator.name %><br>
+  Assigned to: <%= @ticket.assignee.name %><br>
+</div>
+<div class="ticket-dates">
+  Due date: <%= @ticket.due_date %><br>
+  Created on: <%= @ticket.created_at %><br>
+  Updated on: <%= @ticket.updated_at %><br>
+</div>
+<div class="ticket-description">
+  <%= simple_format(@ticket.description) %>
+</div>

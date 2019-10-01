@@ -14,22 +14,37 @@
  *= require_self
  */
 
- body,h1,h2,h3,h4,h5,h6 {
-   font-family: "Lato", sans-serif;
- }
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Lato", sans-serif;
+}
 
- main {
+main {
   padding: 30px;
- }
+}
 
- .w3-bar,h1,button {
-   font-family: "Montserrat", sans-serif;
- }
+.w3-bar,h1,button {
+  font-family: "Montserrat", sans-serif;
+}
 
- .fa-anchor,.fa-coffee {
-   font-size:200px
- }
+.fa-anchor,.fa-coffee {
+  font-size:200px;
+}
 
- form {
-   line-height: 2em;
- }
+form {
+  line-height: 2em;
+}
+
+table {
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+td, th {
+  width: 15%;
+}
+
+.ticket-title {
+  width: 40%;
+}

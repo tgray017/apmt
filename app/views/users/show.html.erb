@@ -1,1 +1,37 @@
-<%= render partial: 'form' %>
+<h1><%= @user.name %></h1>
+<p>Email: <%= @user.email %></p>
+<p>Assigned tickets:</p>
+<table>
+  <tr>
+    <th class="ticket-title">Title</th>
+    <th>Status</th>
+    <th>Creator</th>
+    <th>Due Date</th>
+  </tr>
+  <% @user.assigned_tickets.each do |t| %>
+  <tr>
+    <td class="ticket-title"><%= t.title %></td>
+    <td><%= t.status.name %></td>
+    <td><%= t.creator.name %></td>
+    <td><%= t.due_date %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p>Created tickets:</p>
+<table>
+  <tr>
+    <th class="ticket-title">Title</th>
+    <th>Status</th>
+    <th>Assignee</th>
+    <th>Due Date</th>
+  </tr>
+  <% @user.created_tickets.each do |t| %>
+  <tr>
+    <td class="ticket-title"><%= link_to t.title, ticket_path(t) %></td>
+    <td><%= link_to t.status.name, status_path(t.status) %></td>
+    <td><%= link_to t.assignee.name, user_path(t.assignee) %></td>
+    <td><%= t.due_date %></td>
+  </tr>
+  <% end %>
+</table>

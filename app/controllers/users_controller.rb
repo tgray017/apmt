@@ -5,8 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # why isn't it failing if password_digest != password_confirmation
     if @user.save
+      session[:user_id] = @user.id
       redirect_to tickets_path
     else
       render :new
@@ -16,6 +16,6 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :is_admin)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :is_admin)
     end
 end

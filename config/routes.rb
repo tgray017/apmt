@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :statuses
   resources :tickets
   resources :users
-  resources :sessions
+  get 'signin', to: 'sessions#new'
+  post 'signin', to: 'sessions#create'
   root 'welcome#home'
 end

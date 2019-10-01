@@ -13,6 +13,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+    redirect_to root_path unless @user == current_user
+  end
+
+  def show
+
+  end
+
   private
 
     def user_params

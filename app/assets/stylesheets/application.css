@@ -25,3 +25,7 @@
  .fa-anchor,.fa-coffee {
    font-size:200px
  }
+
+ form {
+   line-height: 2em;
+ }

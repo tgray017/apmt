@@ -48,3 +48,8 @@ td, th {
 .ticket-title {
   width: 40%;
 }
+
+textarea {
+  width: 50%;
+  height: 15em;
+}

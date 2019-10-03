@@ -1,2 +1,16 @@
-<h1>All tickets</h1>
-<%= render :partial => 'tickets/table', locals: { :tickets => @tickets } %>
+<% if current_page?(tickets_path) %>
+  <%# /tickets path - this is the standard tickets index %>
+
+  <h1>All tickets</h1>
+  <%= render :partial => 'tickets/table', locals: { :tickets => @tickets } %>
+
+<% else %>
+  <%# /users/:id/tickets - this is the nested tickets index %>
+
+  <h1><%= @user.name %>'s Tickets</h1>
+  <h4>Assigned tickets:</h4>
+  <%= render :partial => 'tickets/table', locals: { :tickets => @user.assigned_tickets } %>
+
+  <h4>Created tickets:</h4>
+  <%= render :partial => 'tickets/table', locals: { :tickets => @user.created_tickets } %>
+<% end %>

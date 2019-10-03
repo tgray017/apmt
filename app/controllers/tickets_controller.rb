@@ -1,6 +1,10 @@
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.all
+    if @user = User.find_by(:id => params[:user_id])
+      @tickets = @user.tickets
+    else
+      @tickets = Ticket.all
+    end
   end
 
   def show

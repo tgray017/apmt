@@ -1,0 +1,4 @@
+<h1><%= @status.name %></h1>
+<p><%= @status.description %></p>
+
+<%= render :partial => 'tickets/table', locals: { :tickets => @status.tickets } %>

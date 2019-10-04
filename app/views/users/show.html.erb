@@ -1,7 +1,2 @@
 <h1><%= @user.name %></h1>
 <p>Email: <%= @user.email %></p>
-<p>Assigned tickets:</p>
-<%= render :partial => 'tickets/table', locals: { :tickets => @user.assigned_tickets } %>
-
-<p>Created tickets:</p>
-<%= render :partial => 'tickets/table', locals: { :tickets => @user.created_tickets } %>

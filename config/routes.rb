@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :tickets
   end
+  resources :comments
+
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'
   root 'welcome#home'

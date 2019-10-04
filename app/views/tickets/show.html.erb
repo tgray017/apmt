@@ -4,7 +4,7 @@
 </div>
 
 <div class="ticket-description w3-twothird">
-  <%= simple_format(@ticket.description) %>
+  <%= simple_format(@ticket.description) %><br><br>
 </div>
 <div class="w3-third">
   <div class="ticket-people">
@@ -17,3 +17,10 @@
     Updated on: <%= @ticket.updated_at %><br>
   </div>
 </div>
+
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :ticket_id, :value => @ticket.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.text_area :content %><br>
+  <%= f.submit %>
+<% end %>

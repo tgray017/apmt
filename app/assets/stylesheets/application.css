@@ -49,7 +49,12 @@ td, th {
   width: 40%;
 }
 
-textarea {
+textarea#ticket_description {
   width: 50%;
   height: 15em;
+}
+
+textarea#comment_content {
+  width: 30%;
+  height: 5em;
 }

@@ -32,6 +32,7 @@ main {
 
 form {
   line-height: 2em;
+  display: block;
 }
 
 table {

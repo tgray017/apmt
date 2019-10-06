@@ -18,9 +18,54 @@
   </div>
 </div>
 
+<% @comments.each do |c| %>
+  <p><%= c.user.name %>:
+  <%= c.content %></p>
+  <button type="button" class="formButton">Reply</button>
+  <%= form_for @reply, :html => {:class => "form1"} do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
 <%= form_for @comment do |f| %>
   <%= f.hidden_field :ticket_id, :value => @ticket.id %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.text_area :content %><br>
   <%= f.submit %>
 <% end %>
+
+
+<script>
+  $(document).ready(function() {
+    $(".formButton").click(function() {
+      $(".form1").toggle();
+    });
+
+    $('button.formButton').on('click', function(){
+      $('form.form1').addClass('current');
+      $(this).removeClass('current');
+    });
+
+    $( "button" ).click(function() {
+      $( this ).toggleClass( "show" );
+    });
+
+
+  });
+
+  $( "button" ).click(function() {
+    $( this ).toggleClass( "show" );
+  });
+
+</script>
+
+<style>
+  .form1 {
+    display: none;
+  }
+
+  .current {
+    display: none;
+  }
+</style>

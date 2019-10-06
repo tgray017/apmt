@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :comments
   resources :replies
 
-  get 'signin', to: 'sessions#new'
-  post 'signin', to: 'sessions#create'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'signup', to: 'users#new'
+  get 'logout', to: 'sessions#destroy'
   root 'welcome#home'
 
 end

@@ -19,13 +19,17 @@
 </div>
 
 <% @comments.each do |c| %>
-  <p><%= c.user.name %>:
-  <%= c.content %></p>
-  <button type="button" class="formButton">Reply</button>
-  <%= form_for @reply, :html => {:class => "form1"} do |f| %>
-    <%= f.text_area :content %>
-    <%= f.submit %>
-  <% end %>
+<div class="ticket-comment">
+  <p>
+    <%= c.user.name %>: <%= c.content %>
+  </p>
+  <div class="ticket-reply">
+    <%= form_for @reply do |f| %>
+      <%= f.text_area :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
 <% end %>
 
 <%= form_for @comment do |f| %>
@@ -61,11 +65,11 @@
 </script>
 
 <style>
-  .form1 {
+  .ticket-reply {
     display: none;
   }
 
-  .current {
-    display: none;
+  .ticket-reply.show {
+    display: block;
   }
 </style>

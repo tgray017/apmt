@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :tickets
   end
   resources :comments
+  resources :replies
 
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'

@@ -19,17 +19,20 @@
 </div>
 
 <% @comments.each do |c| %>
-<div class="ticket-comment">
-  <p>
-    <%= c.user.name %>: <%= c.content %>
-  </p>
-  <div class="ticket-reply">
-    <%= form_for @reply do |f| %>
-      <%= f.text_area :content %>
-      <%= f.submit %>
-    <% end %>
+  <div class="comment-reply">
+    <div class="comment">
+      <p>
+        <%= c.user.name %>: <%= c.content %>
+      </p>
+    </div>
+    <div class="reply">
+      <%= form_for @reply do |f| %>
+        <%= f.hidden_field :comment_id, :value => c.id %>
+        <%= f.text_area :content %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
-</div>
 <% end %>
 
 <%= form_for @comment do |f| %>

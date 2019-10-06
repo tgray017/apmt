@@ -16,8 +16,8 @@
 
     <script>
     $(document).ready(function(){
-      $("div.ticket-comment").click(function(){
-        $(this).find(".ticket-reply").toggle();
+      $("div.comment").click(function(){
+        $(this).parent().find(".reply").toggle("slow");
       });
     });
     </script>

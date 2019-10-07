@@ -19,7 +19,7 @@ body,h1,h2,h3,h4,h5,h6 {
 }
 
 main {
-  padding: 30px;
+  padding: 2em;
 }
 
 .w3-bar,h1,button {
@@ -60,6 +60,40 @@ textarea#comment_content {
   height: 5em;
 }
 
-.comment-reply .reply {
+.ticket-description {
+  width: 50%;
+  background-color: rgb(200, 208, 218);
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  float: left;
+}
+
+.ticket-comment-details {
+  background-color: rgb(200, 208, 218);
+  width: 50%;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  clear: both;
+}
+
+.ticket-dates-and-people {
+  background-color: rgb(200, 208, 218);
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  float: right;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.reply, .new-reply {
+  padding-left: 2em;
+}
+
+.comment-reply .new-reply {
   display: none;
 }

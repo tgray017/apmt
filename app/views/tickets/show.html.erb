@@ -17,35 +17,40 @@
     Updated on: <%= @ticket.updated_at %><br>
   </section>
 
-  <section class="ticket-comment-details">
+  <section class="ticket-comment-details clearfix">
     <% @comments.each do |c| %>
       <div class="comment-reply">
         <div class="comment">
-          <p><%= c.user.name %>: <%= c.content %></p>
+          <%= c.user.name %>: <%= c.content %>
         </div>
 
-        <div class="reply">
+        <div class="replies">
           <% c.replies.each do |r| %>
-            <p><%= r.user.name %>: <%= r.content %></p>
+          <div class="reply">
+            <%= r.user.name %>: <%= r.content %>
+          </div>
           <% end %>
         </div>
 
         <div class="new-reply">
           <%= form_for @reply do |f| %>
             <%= f.hidden_field :comment_id, :value => c.id %>
-            <%= f.text_area :content %>
+            <%= f.text_area :content %><br>
             <%= f.submit %>
           <% end %>
         </div>
       </div>
     <% end %>
 
-    <%= form_for @comment do |f| %>
-      <%= f.hidden_field :ticket_id, :value => @ticket.id %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.text_area :content %><br>
-      <%= f.submit %>
-    <% end %>
+    <div class="new-comment">
+      <%= form_for @comment do |f| %>
+        <%= f.hidden_field :ticket_id, :value => @ticket.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.text_area :content %><br>
+        <%= f.submit %>
+      <% end %>
+    </div>
+
   </section>
 
 

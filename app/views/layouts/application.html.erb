@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
-    $(document).ready(function(){
+    $(document).on('turbolinks:load', function(){
       $("div.comment").click(function(){
         $(this).parent().find(".new-reply").toggle("fast");
       });

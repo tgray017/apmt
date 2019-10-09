@@ -40,6 +40,15 @@ class TicketsController < ApplicationController
     end
   end
 
+  def destroy
+    @ticket = authorize Ticket.find(params[:id])
+    if @ticket.destroy
+      redirect_to tickets_path, :flash => {:alert => "Ticket successfully deleted."}
+    else
+      redirect_to ticket_path(@ticket)
+    end
+  end
+
   private
 
     def ticket_params

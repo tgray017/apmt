@@ -12,4 +12,25 @@ class User < ApplicationRecord
     Ticket.where(:creator_id => self.id)
   end
 
+  def self.find_or_create_by_omniauth(auth)
+    if auth[:provider] == "google_oauth2"
+      User.find_or_create_by(:email => auth[:info][:email]) do |u|
+        u.name = auth[:info][:name]
+        u.password = SecureRandom.hex
+      end
+    elsif auth[:provider] == "github"
+      if auth[:info][:email].nil?
+        User.find_or_create_by(:name => auth[:info][:nickname]) do |u|
+          u.email = auth[:info][:email]
+          u.password = SecureRandom.hex
+        end
+      else
+        User.find_or_create_by(:email => auth[:info][:email]) do |u|
+          u.name = auth[:info][:nickname]
+          u.password = SecureRandom.hex
+        end
+      end
+    end
+  end
+
 end

@@ -28,6 +28,7 @@
       <%= render partial: 'layouts/navbar' %>
     </header>
     <main>
+      <%= flash[:alert] %>
       <%= yield %>
     </main>
   </body>

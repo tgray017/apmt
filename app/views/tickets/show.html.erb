@@ -1,6 +1,6 @@
 <h1><%= @ticket.title %></h1>
 <% if policy(@ticket).update? %>
-  <p><%= link_to "Edit ticket", edit_ticket_path(@ticket) %>  <%= link_to "Delete ticket", ticket_path(@ticket), :method => "delete" %></p>
+  <p><%= link_to "Edit ticket", edit_ticket_path(@ticket) %>  <%= link_to "Delete ticket", ticket_path(@ticket), :method => "delete", data: {:confirm => "Are you sure you want to delete this ticket?" } %></p>
 <% end %>
 
 <div class="ticket-status">

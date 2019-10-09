@@ -1,13 +1,13 @@
 <div class="w3-bar w3-red w3-card w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
   <% if logged_in? %>
-    <%= link_to "Home", tickets_path, :class => "w3-bar-item w3-button w3-padding-large w3-white" %>
-    <%= link_to "My Tickets", user_tickets_path(current_user), :class => "w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" %>
-    <%= link_to "New Ticket", new_ticket_path, :class => "w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" %>
-    <%= link_to "Log out", logout_path, :class => "w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" %>
+    <%= link_to "Home", tickets_path, :class => "#{navbar_highlight(tickets_path)}" %>
+    <%= link_to "My Tickets", user_tickets_path(current_user), :class => "#{navbar_highlight(user_tickets_path(current_user))}" %>
+    <%= link_to "New Ticket", new_ticket_path, :class =>"#{navbar_highlight(new_ticket_path)}" %>
+    <%= link_to "Log out", logout_path, :class => "#{navbar_highlight(logout_path)}" %>
   <% else %>
-    <%= link_to "Home", root_path, :class => "w3-bar-item w3-button w3-padding-large w3-white" %>
-    <%= link_to "Log In", login_path, :class => "w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" %>
-    <%= link_to "Sign Up", signup_path, :class => "w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" %>
+    <%= link_to "Home", root_path, :class => "#{navbar_highlight(root_path)}" %>
+    <%= link_to "Log In", login_path, :class => "#{navbar_highlight(login_path)}" %>
+    <%= link_to "Sign Up", signup_path, :class => "#{navbar_highlight(signup_path)}" %>
   <% end %>
 </div>

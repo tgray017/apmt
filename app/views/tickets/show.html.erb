@@ -1,6 +1,6 @@
 <h1><%= @ticket.title %></h1>
 <% if policy(@ticket).update? %>
-  <p><%= link_to "Edit ticket", edit_ticket_path(@ticket) %>  <%= link_to "Delete ticket", ticket_path(@ticket), :method => "delete", data: {:confirm => "Are you sure you want to delete this ticket?" } %></p>
+  <p><%= link_to "Edit ticket", edit_ticket_path(@ticket) %> <%= link_to "Delete ticket", ticket_path(@ticket), :method => "delete", data: {:confirm => "Are you sure you want to delete this ticket?" } %></p>
 <% end %>
 
 <div class="ticket-status">
@@ -49,7 +49,6 @@
     <div class="new-comment">
       <%= form_for @comment do |f| %>
         <%= f.hidden_field :ticket_id, :value => @ticket.id %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.text_area :content %><br>
         <%= f.submit %>
       <% end %>

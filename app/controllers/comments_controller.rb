@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user = current_user
     if @comment.save
       @ticket = Ticket.find(params[:comment][:ticket_id])
       redirect_to ticket_path(@ticket)
@@ -14,6 +15,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:ticket_id, :user_id, :content)
+      params.require(:comment).permit(:ticket_id, :content)
     end
 end

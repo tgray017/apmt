@@ -14,11 +14,11 @@
   </section>
 
   <section class="ticket-dates-and-people">
-    Created by: <%= @ticket.creator.name %><br>
-    Assigned to: <%= @ticket.assignee.name %><br>
+    Created by: <%= link_to @ticket.creator.name, user_tickets_path(@ticket.creator) %><br>
+    Assigned to: <%= link_to @ticket.assignee.name, user_tickets_path(@ticket.assignee) %><br>
     Due date: <%= @ticket.due_date %><br>
-    Created on: <%= @ticket.created_at %><br>
-    Updated on: <%= @ticket.updated_at %><br>
+    Created on: <%= display_date(@ticket.created_at) %><br>
+    Updated on: <%= display_date(@ticket.updated_at) %><br>
   </section>
 
   <section class="ticket-comment-details clearfix">

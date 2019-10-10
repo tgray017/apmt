@@ -10,8 +10,8 @@
   <tr>
     <td class="ticket-title"><%= link_to t.title, ticket_path(t) %></td>
     <td><%= link_to t.status.name, status_path(t.status) %></td>
-    <td><%= link_to t.creator.name, user_path(t.creator) %></td>
-    <td><%= link_to t.assignee.name, user_path(t.assignee) %></td>
+    <td><%= link_to t.creator.name, user_tickets_path(t.creator) %></td>
+    <td><%= link_to t.assignee.name, user_tickets_path(t.assignee) %></td>
     <td><%= t.due_date %></td>
   </tr>
   <% end %>

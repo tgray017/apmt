@@ -4,6 +4,15 @@ class User < ApplicationRecord
   has_many :tickets
   has_many :comments, through: :tickets
 
+  validates :name, presence: true
+  validate :email_must_be_valid_if_present
+
+  def email_must_be_valid_if_present
+    if email.present? && !email.match(/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i)
+      errors.add(:email, "must be valid")
+    end
+  end
+
   def assigned_tickets
     Ticket.where(:assignee_id => self.id)
   end

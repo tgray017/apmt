@@ -11,4 +11,5 @@ module ApplicationHelper
   def current_path
     request.env["REQUEST_PATH"]
   end
+
 end

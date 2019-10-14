@@ -1,2 +1,5 @@
 <h1><%= @user.name %></h1>
+<% if policy(@user).update? %>
+  <p><%= link_to "Edit user", edit_user_path(@user) %></p>
+<% end %>
 <p>Email: <%= @user.email %></p>

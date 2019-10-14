@@ -16,12 +16,33 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    redirect_to root_path unless @user == current_user
+    @user = User.find_by(:id => params[:id])
+    if @user
+      authorize @user
+    else
+      redirect_to root_path, :flash => {:alert => "User does not exist."}
+    end
+  end
+
+  def update
+    @user = User.find_by(:id => params[:id])
+    if @user
+      authorize @user
+      if @user.update(user_params)
+        redirect_to user_path(@user)
+      else
+        render :edit
+      end
+    else
+      redirect_to root_path, :flash => {:alert => "User does not exist."}
+    end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(:id => params[:id])
+    unless @user
+      redirect_to root_path, :flash => {:alert => "User does not exist."}
+    end
   end
 
   private

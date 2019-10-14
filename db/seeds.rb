@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 STATUSES = [
-  {:name => "Inputs", :description => "This ticket needs additional information in order to be executed."},
-  {:name => "Inputs Complete", :description => "This ticket is ready to be picked up."},
-  {:name => "Execution", :description => "This ticket is currently being executed."},
-  {:name => "Ready for QA", :description => "This ticket is ready for another participant to QA."},
-  {:name => "In QA", :description => "This ticket is currently being QA'd."},
-  {:name => "Deploy", :description => "This ticket is ready to be deployed."},
-  {:name => "Complete", :description => "This ticket is complete."}
+  {:name => "Inputs", :description => "Tickets in this status need additional information in order to be executed."},
+  {:name => "Inputs Complete", :description => "Tickets in this status are ready to be picked up."},
+  {:name => "Execution", :description => "Tickets in this status are currently being executed."},
+  {:name => "Ready for QA", :description => "Tickets in this status are ready for another participant to QA."},
+  {:name => "In QA", :description => "Tickets in this status are currently being QA'd."},
+  {:name => "Deploy", :description => "Tickets in this status are ready to be deployed."},
+  {:name => "Complete", :description => "Tickets in this status are complete."}
 ]
 
 STATUSES.each do |s|

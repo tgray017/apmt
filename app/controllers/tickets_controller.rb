@@ -8,10 +8,14 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
-    @comments = @ticket.comments
-    @comment = Comment.new
-    @reply = Reply.new
+    @ticket = Ticket.find_by(:id => params[:id])
+    if @ticket
+      @comments = @ticket.comments
+      @comment = Comment.new
+      @reply = Reply.new
+    else
+      redirect_to root_path, :flash => {:alert => "Ticket does not exist."}
+    end
   end
 
   def new
@@ -28,24 +32,39 @@ class TicketsController < ApplicationController
   end
 
   def edit
-    @ticket = authorize Ticket.find(params[:id])
+    @ticket = Ticket.find_by(:id => params[:id])
+    if @ticket
+      authorize @ticket
+    else
+      redirect_to root_path, :flash => {:alert => "Ticket does not exist."}
+    end
   end
 
   def update
-    @ticket = authorize Ticket.find(params[:id])
-    if @ticket.update(ticket_params)
-      redirect_to ticket_path(@ticket)
+    @ticket = Ticket.find_by(:id => params[:id])
+    if @ticket
+      authorize @ticket
+      if @ticket.update(ticket_params)
+        redirect_to ticket_path(@ticket)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to root_path, :flash => {:alert => "Ticket does not exist."}
     end
   end
 
   def destroy
-    @ticket = authorize Ticket.find(params[:id])
-    if @ticket.destroy
-      redirect_to tickets_path, :flash => {:alert => "Ticket successfully deleted."}
+    @ticket = Ticket.find_by(:id => params[:id])
+    if @ticket
+      authorize @ticket
+      if @ticket.destroy
+        redirect_to tickets_path, :flash => {:alert => "Ticket successfully deleted."}
+      else
+        redirect_to ticket_path(@ticket)
+      end
     else
-      redirect_to ticket_path(@ticket)
+      redirect_to root_path, :flash => {:alert => "Ticket does not exist."}
     end
   end
 

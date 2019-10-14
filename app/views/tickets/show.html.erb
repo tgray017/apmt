@@ -4,7 +4,7 @@
 <% end %>
 
 <div class="ticket-status">
-  Status: <%= @ticket.status.name %><br>
+  Status: <%= link_to @ticket.status.name, status_path(@ticket.status) %><br>
 </div>
 
 
@@ -28,13 +28,13 @@
     <% @comments.each do |c| %>
       <div class="comment-reply">
         <div class="comment">
-          <%= c.user.name %>: <%= c.content %>
+          <%= link_to c.user.name, user_path(c.user) %>: <%= c.content %>
         </div>
 
         <div class="replies">
           <% c.replies.each do |r| %>
           <div class="reply">
-            <%= r.user.name %>: <%= r.content %>
+            <%= link_to r.user.name, user_path(r.user) %>: <%= r.content %>
           </div>
           <% end %>
         </div>

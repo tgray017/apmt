@@ -9,5 +9,6 @@ class Ticket < ApplicationRecord
   belongs_to :status
 
   validates :title, presence: true
+  validates :title, uniqueness: true
   validates :description, presence: true
 end

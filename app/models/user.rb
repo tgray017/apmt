@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :comments, through: :tickets
 
   validates :name, presence: true
+  validates :email, uniqueness: true
   validate :email_must_be_valid_if_present
 
   def email_must_be_valid_if_present

@@ -22,6 +22,13 @@ class StatusesController < ApplicationController
     end
   end
 
+  def edit
+    @status = Status.find_by(:id => params[:id])
+    unless @status
+      redirect_to root_path, :flash => {:alert => "Status does not exist."}
+    end
+  end
+
   def update
     @status = Status.find_by(:id => params[:id])
     if @status

@@ -1,4 +1,7 @@
 <h1><%= @status.name %></h1>
+<% if policy(@status).edit? %>
+  <p><%= link_to "Edit status", edit_status_path(@status) %></p>
+<% end %>
 <p><%= @status.description %></p>
 
 <%= render :partial => 'tickets/table', locals: { :tickets => @status.tickets } %>

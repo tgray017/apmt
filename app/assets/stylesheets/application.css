@@ -130,3 +130,11 @@ textarea#reply_content {
   clear:both;
   float:left;
 }
+
+/* why is this causing so much trouble */
+.alert,#error_explanation span {
+  margin-bottom: 2em;
+  padding: 0.5em;
+  background-color: #f44336;
+  color: white;
+}

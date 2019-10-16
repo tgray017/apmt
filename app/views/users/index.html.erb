@@ -1,0 +1,15 @@
+<h1>All users</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Admin</th>
+  </tr>
+  <% @users.each do |u| %>
+  <tr>
+    <td><%= link_to u.name, user_path(u) %></td>
+    <td><%= u.email %></td>
+    <td><%= u.is_admin? %></td>
+  </tr>
+  <% end %>
+</table>

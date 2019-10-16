@@ -26,7 +26,11 @@ class StatusesController < ApplicationController
     @status = Status.find_by(:id => params[:id])
     if @status
       authorize @status
-
+      if @status.update(status_params)
+        redirect_to status_path(@status)
+      else
+        render :edit
+      end
     else
       redirect_to root_path, :flash => {:alert => "Status does not exist."}
     end

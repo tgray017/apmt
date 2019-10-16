@@ -6,13 +6,8 @@ class RepliesController < ApplicationController
     if @reply.save
       redirect_to ticket_path(@comment.ticket)
     else
-      render ticket_path(@comment.ticket)
+      redirect_to ticket_path(@comment.ticket), :flash => {:alert => "Invalid reply."}
     end
   end
 
-  #private
-
-    #def reply_params
-    #  params.require(:reply).permit(:comment_id, :content)
-    #end
 end

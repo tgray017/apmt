@@ -3,11 +3,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
+    @ticket = Ticket.find(params[:comment][:ticket_id])
     if @comment.save
-      @ticket = Ticket.find(params[:comment][:ticket_id])
       redirect_to ticket_path(@ticket)
     else
-      render 'tickets/show' # set a flash message - user or ticket doesn't exist
+      redirect_to ticket_path(@ticket), :flash => {:alert => "Invalid comment."}
     end
   end
 

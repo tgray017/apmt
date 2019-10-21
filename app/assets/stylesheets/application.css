@@ -30,22 +30,6 @@ main {
   font-size:200px;
 }
 
-form {
-  line-height: 2em;
-  display: block;
-}
-
-/*table {
-  background-color: #EEEEEE;
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-td, th {
-  width: 15%;
-}*/
-
 .ticket-title {
   width: 40%;
 }
@@ -74,15 +58,6 @@ textarea#reply_content {
   float: left;
 }
 
-.ticket-comment-details {
-  background-color: rgb(200, 208, 218);
-  width: 60%;
-  border-radius: 0.5em;
-  margin: 1em;
-  padding: 1em;
-  clear: both;
-}
-
 .ticket-dates-and-people {
   background-color: rgb(200, 208, 218);
   border-radius: 0.5em;
@@ -94,6 +69,15 @@ textarea#reply_content {
 
 .clearfix {
   overflow: auto;
+}
+
+.ticket-comment-details {
+  background-color: rgb(200, 208, 218);
+  width: 60%;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  clear: both;
 }
 
 .new-reply {
@@ -132,9 +116,19 @@ textarea#reply_content {
 }
 
 /* why is this causing so much trouble */
-.alert,#error_explanation span {
-  margin-bottom: 2em;
-  padding: 0.5em;
+div.alert-alert,#error_explanation span {
+  display: inline-block;
+  margin: 0.25em 0.25em 0.25em 1em;
+  padding: 0.25em;
   background-color: #f44336;
   color: white;
+  border-radius: 0.25em;
+}
+
+div.field_with_errors + br {
+  display: none
+}
+
+div.field_with_errors input, div.field_with_errors textarea {
+  border: red 2px dotted;
 }

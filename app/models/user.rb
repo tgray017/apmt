@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :tickets
   has_many :comments, through: :tickets
+  has_many :statuses, through: :tickets
 
   validates :name, presence: true
   validates :email, uniqueness: true

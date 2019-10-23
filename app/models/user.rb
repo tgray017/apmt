@@ -5,6 +5,9 @@ class User < ApplicationRecord
   has_many :comments, through: :tickets
   has_many :statuses, through: :tickets
 
+  has_many :user_tickets
+  has_many :watched_tickets, through: :user_tickets, source: :ticket
+
   validates :name, presence: true
   validates :email, uniqueness: true
   validate :email_must_be_valid_if_present

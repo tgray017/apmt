@@ -8,6 +8,9 @@ class Ticket < ApplicationRecord
   has_many :comments
   belongs_to :status
 
+  has_many :user_tickets
+  has_many :watchers, through: :user_tickets, source: :user
+
   validates :title, presence: true
   validates :title, uniqueness: true
   validates :description, presence: true

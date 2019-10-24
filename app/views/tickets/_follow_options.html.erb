@@ -1,22 +1,5 @@
 <% if ticket.followers.include?(current_user) %>
-  <%# form_for TicketFollow.find_by(:user_id => current_user.id, :ticket_id => ticket.id), :method => :delete do |f| %>
-    <%# f.hidden_field :ticket_id, :value => ticket.id %>
-    <%# link_to 'Unfollow this ticket', "", :onclick => "$('#new_ticket_follow').submit()" %>
-  <%# end %>
-
-
-
-  <%# link_to "Unfollow this ticket", ticket_follow_path(TicketFollow.find_by(:user_id => current_user.id, :ticket_id => ticket.id)), :method => "delete" %>
-
-
-
-  <%# link_to 'Unfollow this ticket', { :controller => 'TicketFollows', :action => 'destroy', :id => TicketFollow.find_by(:user_id => current_user.id, :ticket_id => ticket.id).id } %>
-
   <%= link_to 'Unfollow this ticket', TicketFollow.find_by(:user_id => current_user.id, :ticket_id => ticket.id), method: :delete %>
-
 <% else %>
-  <%= form_for TicketFollow.new do |f| %>
-    <%= f.hidden_field :ticket_id, :value => ticket.id %>
-    <%= link_to 'Follow this ticket', "", :onclick => "$('#new_ticket_follow').submit()" %>
-  <% end %>
+  <%= link_to 'Follow this ticket', TicketFollow.new, method: :create %>
 <% end %>

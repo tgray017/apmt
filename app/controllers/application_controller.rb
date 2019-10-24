@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :current_ticket, :logged_in?
 
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by(:id => session[:user_id])
+  end
+
+  def current_ticket
+    @current_ticket ||= Ticket.find_by(:id => session[:ticket_id])
   end
 
   def logged_in?

@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :comments, through: :tickets
   has_many :statuses, through: :tickets
 
-  has_many :user_tickets
-  has_many :watched_tickets, through: :user_tickets, source: :ticket
+  has_many :ticket_follows
+  has_many :followed_tickets, through: :ticket_follows, source: :ticket
 
   validates :name, presence: true
   validates :email, uniqueness: true

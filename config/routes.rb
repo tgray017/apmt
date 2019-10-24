@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :replies
+  resources :ticket_follows
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

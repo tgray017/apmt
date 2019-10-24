@@ -21,6 +21,11 @@
     Due date: <%= @ticket.due_date %><br>
     Created on: <%= display_date(@ticket.created_at) %><br>
     Updated on: <%= display_date(@ticket.updated_at) %><br>
+    Followers: <%= render :partial => 'followers', locals: { :ticket => @ticket } %><br>
+    <%= render :partial => 'follow_options', locals: { :ticket => @ticket } %>
+
+
+
   </section>
 
   <section class="ticket-comment-details clearfix">

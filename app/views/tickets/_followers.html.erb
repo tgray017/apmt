@@ -1,0 +1,3 @@
+<% ticket.followers.each do |f| %>
+  <%= link_to f.name, user_tickets_path(f) %>
+<% end %>

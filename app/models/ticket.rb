@@ -8,8 +8,8 @@ class Ticket < ApplicationRecord
   has_many :comments
   belongs_to :status
 
-  has_many :user_tickets
-  has_many :watchers, through: :user_tickets, source: :user
+  has_many :ticket_follows
+  has_many :followers, through: :ticket_follows, source: :user
 
   validates :title, presence: true
   validates :title, uniqueness: true

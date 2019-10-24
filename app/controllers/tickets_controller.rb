@@ -10,6 +10,7 @@ class TicketsController < ApplicationController
   def show
     @ticket = Ticket.find_by(:id => params[:id])
     if @ticket
+      session[:ticket_id] = @ticket.id
       @comments = @ticket.comments
       @comment = Comment.new
       @reply = Reply.new
@@ -25,6 +26,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     if @ticket.save
+      session[:ticket_id] = @ticket.id
       redirect_to ticket_path(@ticket)
     else
       render :new # set a flash message
@@ -35,6 +37,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(:id => params[:id])
     if @ticket
       authorize @ticket
+      session[:ticket_id] = @ticket.id
     else
       redirect_to root_path, :flash => {:alert => "Ticket does not exist."}
     end
@@ -58,6 +61,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(:id => params[:id])
     if @ticket
       authorize @ticket
+      session[:ticket_id] = @ticket.id
       if @ticket.destroy
         redirect_to tickets_path, :flash => {:alert => "Ticket successfully deleted."}
       else

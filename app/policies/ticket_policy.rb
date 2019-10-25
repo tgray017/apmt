@@ -6,7 +6,7 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def edit?
-    @ticket.creator == @user
+    @user == @ticket.creator || @user == @ticket.assignee
   end
 
   def update?
@@ -14,6 +14,6 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def destroy?
-    edit?
+    @user == @ticket.creator
   end
 end

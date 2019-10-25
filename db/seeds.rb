@@ -22,11 +22,9 @@ end
 tom = User.create(:name => "Tom", :email => "tgray017@gmail.com", :password => "password", :is_admin => true)
 victoria = User.create(:name => "Victoria", :email => "victoria@ilovewilson.com", :password => "password")
 wilson = User.create(:name => "Wilson", :email => "wilson@iamawesome.com", :password => "password")
-ticket = Ticket.new(:title => "Tom's Ticket to Assign to Victoria", :due_date => "2019-10-15", :description => "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.\r\n
+ticket = Ticket.new(:title => "Tom's Ticket to Assign to Victoria", :due_date => "2019-10-15", :description => "Lorem ipsum dolor amet fam swag echo park brooklyn cronut raclette. Ugh kale chips jean shorts, try-hard whatever sriracha ennui viral echo park mustache. Food truck tousled trust fund beard seitan hashtag kombucha asymmetrical cold-pressed tacos semiotics single-origin coffee fanny pack austin. You probably haven't heard of them portland banjo, cliche poke tacos shaman.
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.\r\n
-
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.")
+Tousled flexitarian kickstarter kombucha chicharrones, sriracha fingerstache tacos slow-carb adaptogen vaporware direct trade brooklyn chartreuse. Craft beer tbh chambray, kombucha 90's affogato selvage jianbing. Shabby chic freegan adaptogen mustache truffaut man braid dreamcatcher taxidermy swag try-hard bushwick raw denim lo-fi readymade. Authentic wayfarers fixie, microdosing literally banjo flannel. Godard tote bag kitsch 3 wolf moon aesthetic, street art iceland. Tofu glossier la croix flannel.")
 ticket.creator = tom
 ticket.assignee = victoria
 ticket.status = Status.find_by(:name => "Inputs")

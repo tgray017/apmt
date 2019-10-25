@@ -2,15 +2,15 @@
   <%# /tickets path - this is the standard tickets index %>
 
   <h1>All tickets</h1>
-  <%= render :partial => 'tickets/table', locals: { :tickets => @tickets } %>
+  <%= render :partial => 'tickets/table', locals: { :tickets => @tickets.order(:due_date) } %>
 
 <% else %>
   <%# /users/:id/tickets - this is the nested tickets index %>
 
   <h1><%= @user.name %>'s Tickets</h1>
   <h4>Assigned tickets:</h4>
-  <%= render :partial => 'tickets/table', locals: { :tickets => @user.assigned_tickets } %>
+  <%= render :partial => 'tickets/table', locals: { :tickets => @user.assigned_tickets.order(:due_date) } %>
 
   <h4>Created tickets:</h4>
-  <%= render :partial => 'tickets/table', locals: { :tickets => @user.created_tickets } %>
+  <%= render :partial => 'tickets/table', locals: { :tickets => @user.created_tickets.order(:due_date) } %>
 <% end %>

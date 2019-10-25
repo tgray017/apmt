@@ -1,4 +1,4 @@
-<div class="w3-bar w3-red w3-card w3-left-align w3-large navbar">
+<div class="w3-bar w3-red w3-card w3-left-align w3-medium navbar">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
   <% if logged_in? %>
     <%= link_to "Home", tickets_path, :class => "#{navbar_highlight(tickets_path)}" %>
@@ -6,7 +6,8 @@
     <%= link_to "Followed Tickets", ticket_follows_path, :class => "#{navbar_highlight(ticket_follows_path)}" %>
     <%= link_to "New Ticket", new_ticket_path, :class => "#{navbar_highlight(new_ticket_path)}" %>
     <%= link_to "New Status", new_status_path, :class => "#{navbar_highlight(new_status_path)}" if current_user.is_admin? %>
-    <%= link_to "Log out", logout_path, :class => "#{navbar_highlight(logout_path)}" %>
+    <%= link_to "Users", users_path, :class => "#{navbar_highlight(users_path)}" %>
+    <%= link_to "Log Out", logout_path, :class => "#{navbar_highlight(logout_path)}" %>
   <% else %>
     <%= link_to "Home", root_path, :class => "#{navbar_highlight(root_path)}" %>
     <%= link_to "Log In", login_path, :class => "#{navbar_highlight(login_path)}" %>

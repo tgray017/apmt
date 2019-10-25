@@ -3,6 +3,7 @@
   <% if logged_in? %>
     <%= link_to "Home", tickets_path, :class => "#{navbar_highlight(tickets_path)}" %>
     <%= link_to "My Tickets", user_tickets_path(current_user), :class => "#{navbar_highlight(user_tickets_path(current_user))}" %>
+    <%= link_to "Followed Tickets", ticket_follows_path, :class => "#{navbar_highlight(ticket_follows_path)}" %>
     <%= link_to "New Ticket", new_ticket_path, :class => "#{navbar_highlight(new_ticket_path)}" %>
     <%= link_to "New Status", new_status_path, :class => "#{navbar_highlight(new_status_path)}" if current_user.is_admin? %>
     <%= link_to "Log out", logout_path, :class => "#{navbar_highlight(logout_path)}" %>

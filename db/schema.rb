@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_014858) do
   create_table "ticket_follows", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ticket_id"
-    t.boolean "receives_notifications", default: false
+    t.boolean "receives_notifications", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

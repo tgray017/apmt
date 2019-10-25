@@ -1,0 +1,6 @@
+<% if current_path == ticket_follows_path %>
+  <% ticket_follow = TicketFollow.find_by(:user_id => current_user.id, :ticket_id => ticket.id) %>
+  <td><%= form_for ticket_follow do |f| %>
+    <%= f.check_box :receives_notifications, :onclick => "$('#edit_ticket_follow_#{ticket_follow.id}').submit()" %>
+  <% end %></td>
+<% end %>

@@ -12,9 +12,18 @@ class TicketFollowsController < ApplicationController
     redirect_to ticket_path(current_ticket)
   end
 
+  def index
+  end
+
+  def update
+    @ticket_follow = TicketFollow.find_by(:id => params[:id])
+    @ticket_follow.update(ticket_follow_params)
+    redirect_to ticket_follows_path
+  end
+
   private
 
     def ticket_follow_params
-      params.require(:ticket_follow).permit(:ticket_id)
+      params.require(:ticket_follow).permit(:receives_notifications)
     end
 end

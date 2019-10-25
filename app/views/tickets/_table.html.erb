@@ -5,6 +5,7 @@
     <th>Creator</th>
     <th>Assignee</th>
     <th>Due Date</th>
+    <%= render partial: 'ticket_follows/notifications_column_header' %>
   </tr>
   <% tickets.each do |t| %>
   <tr>
@@ -13,6 +14,7 @@
     <td><%= link_to t.creator.name, user_tickets_path(t.creator) %></td>
     <td><%= link_to t.assignee.name, user_tickets_path(t.assignee) %></td>
     <td><%= t.due_date %></td>
+    <%= render partial: 'ticket_follows/notifications_column_row', locals: { ticket: t } %>
   </tr>
   <% end %>
 </table>

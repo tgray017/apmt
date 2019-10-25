@@ -1,24 +1,18 @@
-# README
+# APMT
+The Awesome Project Management Tool (name to be changed at a time TBD) is an issue-tracking tool designed for scrum teams that allows product owners and scrum masters to create and edit tasks (aka "tickets") to be assigned to other users on their team. Tickets can be assigned to different statuses depending on where the assignee is in the process of completing the task, and tickets have due dates so it's easy to see which tickets should be done in what order. This application runs on Ruby 2.6.1.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+1. Clone this repo
+2. Run `bundle install` to install any dependencies.
+3. Run `rails db:migrate` to set up the database.
+4. Run `rails s` and navigate to the newly spun-up web server in your browser.
 
-Things you may want to cover:
+## Contributing
+If you see an opportunity for improvement go ahead and use a typical git workflow to make it happen:
 
-* Ruby version
+* Fork this curriculum repository
+* Make the change on your fork, with descriptive commits in the standard format
+* Open a Pull Request against this repo
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The repo owner will review your change and approve or comment on it in due
+course.

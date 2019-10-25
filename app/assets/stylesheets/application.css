@@ -49,6 +49,11 @@ textarea#reply_content {
   height: 8em;
 }
 
+textarea#status_description {
+  width: 50%;
+  height: 15em;
+}
+
 .ticket-description {
   width: 60%;
   background-color: rgb(200, 208, 218);
@@ -115,7 +120,6 @@ textarea#reply_content {
   float:left;
 }
 
-/* why is this causing so much trouble */
 div.alert-alert,#error_explanation span {
   display: inline-block;
   margin: 0.25em 0.25em 0.25em 1em;

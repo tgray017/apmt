@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :tickets
+  has_many :assigned_tickets, :class_name => "Ticket", :foreign_key => "assignee_id"
+  has_many :created_tickets, :class_name => "Ticket", :foreign_key => "creator_id"
+
   has_many :comments, through: :tickets
   has_many :statuses, through: :tickets
 
@@ -16,14 +18,6 @@ class User < ApplicationRecord
     if email.present? && !email.match(/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i)
       errors.add(:email, "must be valid")
     end
-  end
-
-  def assigned_tickets
-    Ticket.where(:assignee_id => self.id)
-  end
-
-  def created_tickets
-    Ticket.where(:creator_id => self.id)
   end
 
   def self.find_or_create_by_omniauth(auth)
